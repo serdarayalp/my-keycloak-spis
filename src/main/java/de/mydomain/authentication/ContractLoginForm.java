@@ -34,11 +34,11 @@ public class ContractLoginForm implements Authenticator {
     public void action(AuthenticationFlowContext context) {
         MultivaluedMap<String, String> formData = context.getHttpRequest().getDecodedFormParameters();
 
-        String contractNumber = formData.getFirst("contractNumber");
+        String username = formData.getFirst("username");
         String password = formData.getFirst("password");
 
         RealmModel realm = context.getRealm();
-        UserModel user = context.getSession().users().getUserByUsername(realm, contractNumber);
+        UserModel user = context.getSession().users().getUserByUsername(realm, username);
 
         if (user == null) {
             context.failureChallenge(AuthenticationFlowError.INVALID_USER,

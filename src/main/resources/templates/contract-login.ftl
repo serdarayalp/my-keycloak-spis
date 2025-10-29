@@ -5,8 +5,8 @@
             <div id="kc-form">
                 <form action="${url.loginAction}" method="post" id="kc-contract-login-form">
                     <div class="form-group">
-                        <label for="contractNumber" class="control-label">${msg("contractNumber")}</label>
-                        <input type="text" id="contractNumber" name="contractNumber"
+                        <label for="username" class="control-label">${msg("username")}</label>
+                        <input type="text" id="username" name="username"
                                class="form-control" autofocus/>
                     </div>
 
