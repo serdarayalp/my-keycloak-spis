@@ -1,5 +1,6 @@
 # My Keycloak SPIs
 
+## **Authentication Flow (Browser Flow)**
 Ein Main Flow (also der gesamte Authentication Flow) gilt nur dann als erfolgreich,
 wenn alle relevanten Executions und Subflows erfolgreich abgeschlossen sind —
 aber was "relevant" ist, hängt davon ab, ob sie REQUIRED, ALTERNATIVE oder OPTIONAL markiert sind.
@@ -54,3 +55,9 @@ Es beendet den Flow nicht automatisch nach dem ersten Erfolg, weil innerhalb des
 
 Erst wenn alle Executions "evaluated" sind (also geprüft, ob sie erfolgreich/irrelevant sind),
 entscheidet Keycloak am Ende des Durchlaufs, ob der Flow als Ganzes "success" oder "fail" ist.
+
+## **Häufige Stolperfallen**
+- "Alternative" heißt nicht gleichzeitig. Du musst selbst UI-Links oder Buttons anbieten, damit der User auswählen kann.
+  (z. B. per Freemarker-Template <a href="${url.loginAction}?execution=<id>">)
+- "Required" vs. "Alternative" mischen ist gefährlich. Wenn eine Execution im selben Flow "Required" ist, wird sie immer verlangt, auch wenn eine Alternative erfolgreich war.
+- Wenn du Reihenfolge änderst, bestimmt das, welche Methode zuerst angezeigt wird.
