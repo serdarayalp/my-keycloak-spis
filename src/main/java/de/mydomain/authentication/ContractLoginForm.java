@@ -23,7 +23,7 @@ public class ContractLoginForm implements Authenticator {
         LoginFormsProvider form = context.form();
 
         // Rendert unser eigenes Template unter themes/<theme>/login/contract-login.ftl
-        Response challenge = form.createForm("contract-login.ftl");
+        Response challenge = form.createForm(CONTRACT_LOGIN);
         context.challenge(challenge);
     }
 
