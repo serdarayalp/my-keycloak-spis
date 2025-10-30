@@ -1,6 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=false displayMessage=true displayRequiredFields=false; section>
-    <#if section = "form">
+    <#if section = "header">
+        ${msg("loginAccountTitle")}
+    <#elseif section = "form">
         <div id="kc-form-wrapper">
             <div id="kc-form">
                 <form action="${url.loginAction}" method="post" id="kc-contract-login-form">
